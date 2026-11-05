@@ -304,20 +304,26 @@ p { margin: 0; }
 
 /* ---------- Author ---------- */
 .author { display: grid; grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr); gap: 64px; align-items: center; }
-.author__portrait {
-  position: relative; aspect-ratio: 4 / 5; border-radius: var(--radius-lg); overflow: hidden;
-  background: var(--deep);
-  display: grid; place-items: center;
+/* Cut-out portrait sits on a deep-indigo disc with a thin amber ring */
+.author__portrait { margin: 0; position: relative; width: 100%; max-width: 460px; justify-self: center; }
+.author__photo { position: relative; aspect-ratio: 800 / 794; }
+.author__photo::before {
+  content: ""; position: absolute; inset: 1.5%; border-radius: 50%; background: var(--deep);
 }
-.author__portrait img { width: 100%; height: 100%; object-fit: cover; }
-.author__portrait-fallback { text-align: center; color: var(--dark-ink); padding: 24px; }
-.author__monogram {
-  width: 120px; height: 120px; margin: 0 auto 18px; border-radius: 50%;
-  border: 1.5px solid var(--accent); display: grid; place-items: center;
-  font: 700 46px/1 var(--font-serif); color: var(--accent); letter-spacing: 0.02em;
+.author__photo::after {
+  content: ""; position: absolute; inset: -3%; border-radius: 50%;
+  border: 1.5px solid rgba(255, 179, 75, 0.7); pointer-events: none;
 }
-.author__portrait-fallback span { display: block; font: 700 22px/1.3 var(--font-serif); }
-.author__portrait-fallback small { display: block; margin-top: 6px; font: italic 400 15px/1.4 var(--font-serif); color: var(--dark-body); }
+.author__photo img { position: relative; z-index: 1; width: 100%; height: 100%; object-fit: contain; }
+.author__caption {
+  position: relative; z-index: 2;
+  width: max-content; max-width: 100%; margin: -28px auto 0;
+  background: var(--surface-raised); border: 1px solid var(--border-soft); border-radius: var(--radius-pill);
+  padding: 10px 26px; text-align: center;
+  box-shadow: 0 14px 30px -20px rgba(20, 13, 46, 0.55);
+}
+.author__caption span { display: block; font: 700 18px/1.3 var(--font-serif); color: var(--ink); }
+.author__caption small { display: block; font: italic 400 14px/1.4 var(--font-serif); color: var(--ink-muted); }
 .author__bio p + p { margin-top: var(--space-2); }
 .author__bio .h-section { margin-bottom: var(--space-3); }
 .pull-quote {
@@ -472,9 +478,8 @@ p { margin: 0; }
   .offer-card__buy .btn--accent { width: 100%; }
 
   .author { grid-template-columns: 1fr; gap: 32px; }
-  .author__portrait { aspect-ratio: 5 / 4; max-width: 420px; width: 100%; margin: 0 auto; }
-  .author__portrait:not(:has(img)) { aspect-ratio: auto; padding: 32px 0; }
-  .author__monogram { width: 92px; height: 92px; font-size: 36px; }
+  .author__portrait { max-width: 300px; }
+  .author__caption { padding: 8px 20px; margin-top: -22px; }
   .author__bio { text-align: left; }
   .pull-quote { padding: 22px 20px; }
   .author__buy { flex-direction: column; align-items: stretch; text-align: center; }
