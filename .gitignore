@@ -1,0 +1,8 @@
+# Paid ebook file: host it privately, never commit it
+assets/ebook/
+
+# Local editor / preview settings
+.claude/
+
+.DS_Store
+Thumbs.db
