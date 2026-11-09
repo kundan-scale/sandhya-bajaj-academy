@@ -25,10 +25,10 @@
     .ty__tick svg { width: 30px; height: 30px; }
     .ty h1 { font-size: clamp(30px, 6vw, 42px); line-height: 1.15; }
     .ty__lead { margin-top: 12px; color: var(--ink-body); }
-    .ty .book { --t: 16px; width: 180px; margin: 36px auto 40px; }
+    .ty .mockup { width: 210px; margin: 36px auto 44px; }
     .ty__note { margin-top: 14px; font-size: 14px; line-height: 22px; color: var(--ink-muted); }
     .ty .btn--accent { width: 100%; max-width: 340px; }
-    @media (max-width: 767px) { .ty__card { padding: 36px 20px; border-radius: 20px; } .ty .book { width: 150px; } }
+    @media (max-width: 767px) { .ty__card { padding: 36px 20px; border-radius: 20px; } .ty .mockup { width: 180px; } }
   </style>
   <!-- Paste the Meta Pixel / GTM snippet here; fire the Purchase event on this page. -->
 </head>
@@ -54,19 +54,14 @@
         <h1>You’re In. Your eBook is Ready</h1>
         <p class="ty__lead">Thank you for purchasing the Parenting Guide to Academic Excellence</p>
 
-        <div class="book">
-          <div class="book__body">
-                <span class="book__back" aria-hidden="true"></span>
-                <span class="book__pages" aria-hidden="true"></span>
-            <div class="book__cover">
-              <picture>
-                <source srcset="assets/img/ebook-cover-600.webp 600w, assets/img/ebook-cover-hd.webp 969w" sizes="(max-width: 767px) 220px, 300px" type="image/webp">
-                <img src="assets/img/ebook-cover-600.jpg" width="969" height="1500"
-                     alt="Parenting Guide to Academic Excellence ebook cover">
-              </picture>
-            </div>
-          </div>
-        </div>
+        <figure class="mockup mockup--ty">
+  <div class="mockup__frame">
+    <picture>
+      <source srcset="assets/img/ebook-mockup-480.webp 480w, assets/img/ebook-mockup-800.webp 800w" sizes="(max-width: 767px) 200px, 260px" type="image/webp">
+      <img src="assets/img/ebook-mockup-800.jpg" width="800" height="1132" loading="lazy" decoding="async" alt="Hardcover mockup of the Parenting Guide to Academic Excellence ebook by Sandhya Bajaj">
+    </picture>
+  </div>
+</figure>
 
         <a class="btn btn--accent" id="download-btn" href="#" download>
           Download your eBook

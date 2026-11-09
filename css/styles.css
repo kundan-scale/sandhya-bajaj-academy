@@ -252,6 +252,29 @@ p { margin: 0; }
 }
 .book--sm { --t: 12px; width: min(200px, 60%); }
 
+/* Framed product photo (hardcover mockup) used outside the hero:
+   white mat + hairline border, soft lift shadow, offset coral outline behind */
+.mockup { position: relative; margin: 0; width: 260px; max-width: 100%; flex: none; }
+.mockup::before {
+  content: ""; position: absolute; inset: 14px -14px -14px 14px;
+  border: 1.5px solid rgba(255, 104, 88, 0.7); border-radius: 22px;
+}
+.mockup__frame {
+  position: relative; background: #fff; padding: 8px; border-radius: 20px;
+  box-shadow:
+    0 0 0 1px rgba(20, 33, 61, 0.10),
+    0 2px 4px rgba(20, 33, 61, 0.06),
+    0 28px 48px -22px rgba(20, 33, 61, 0.55);
+  transition: transform .4s cubic-bezier(.2, .7, .2, 1), box-shadow .4s ease;
+}
+.mockup:hover .mockup__frame { transform: translateY(-4px); box-shadow: 0 0 0 1px rgba(20, 33, 61, 0.10), 0 2px 4px rgba(20, 33, 61, 0.06), 0 36px 56px -22px rgba(20, 33, 61, 0.6); }
+.mockup img { width: 100%; height: auto; aspect-ratio: 800 / 1132; object-fit: cover; border-radius: 13px; }
+.section--deep .mockup__frame, .offer-card__visual .mockup__frame { box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.12), 0 30px 50px -20px rgba(0, 0, 0, 0.6); }
+.mockup--who { width: 150px; }
+.mockup--who::before { inset: 10px -10px -10px 10px; border-radius: 18px; }
+.mockup--who .mockup__frame { padding: 6px; border-radius: 16px; }
+.mockup--who img { border-radius: 11px; }
+
 /* ---------- What you'll learn (numbered editorial grid) ---------- */
 .learn-grid {
   list-style: none; margin: 0; padding: 0;
@@ -306,7 +329,7 @@ p { margin: 0; }
   overflow: hidden;
 }
 .offer-card__visual { background: var(--deep); display: grid; place-items: center; padding: 40px 24px; }
-.offer-card__visual .book { --t: 18px; width: min(210px, 80%); }
+.offer-card__visual .mockup { width: min(220px, 82%); }
 .offer-card__body { padding: 44px 48px; }
 .offer-card__body .h-section { margin-bottom: var(--space-3); }
 .checklist { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px 28px; }
@@ -382,7 +405,7 @@ p { margin: 0; }
 /* ---------- Closing offer band ---------- */
 .closing { text-align: center; position: relative; overflow: hidden; }
 .closing__inner { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 56px; align-items: center; text-align: left; max-width: 920px; margin: 0 auto; }
-.closing .book { --t: 20px; width: 220px; }
+.closing .mockup { width: 250px; }
 .closing h2 { font-size: clamp(28px, 3.6vw, 38px); line-height: 1.2; margin-bottom: var(--space-2); }
 .closing__sub { margin-bottom: 28px; }
 .closing .buy-row { gap: var(--space-2) var(--space-3); }
@@ -490,8 +513,8 @@ p { margin: 0; }
   .who-card p { font-size: 15px; line-height: 23px; }
 
   .offer-card { grid-template-columns: 1fr; border-radius: 20px; }
-  .offer-card__visual { padding: 28px 16px; }
-  .offer-card__visual .book { --t: 14px; width: 150px; }
+  .offer-card__visual { padding: 28px 16px 44px; }
+  .offer-card__visual .mockup { width: 190px; }
   .offer-card__body { padding: 28px 20px; }
   .offer-card__buy { flex-direction: column; align-items: stretch; text-align: center; }
   .offer-card__buy .price { justify-content: center; }
@@ -511,7 +534,7 @@ p { margin: 0; }
   .faq__a p { font-size: 16px; line-height: 26px; }
 
   .closing__inner { grid-template-columns: 1fr; text-align: center; gap: 28px; }
-  .closing .book { --t: 16px; width: 170px; margin: 0 auto; }
+  .closing .mockup { width: 200px; margin: 0 auto 8px; }
   .closing .buy-row { flex-direction: column; }
   .closing .btn--accent { width: 100%; max-width: 380px; }
 
