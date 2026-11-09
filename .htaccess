@@ -1,0 +1,17 @@
+# Clean URLs for the funnel pages (Hostinger / LiteSpeed / Apache)
+# /thank-you  -> serves thank-you.html  (thank-you.html keeps working too)
+Options -MultiViews
+RewriteEngine On
+
+# Strip a trailing slash from anything that isn't a real folder: /thank-you/ -> /thank-you
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.+)/$ /$1 [R=301,L]
+
+# Common misspelling
+RewriteRule ^thankyou$ /thank-you [R=301,L]
+
+# Serve page.html for /page when that file exists
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{DOCUMENT_ROOT}/$1.html -f
+RewriteRule ^([^/.]+)$ $1.html [L]
