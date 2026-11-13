@@ -15,3 +15,18 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{DOCUMENT_ROOT}/$1.html -f
 RewriteRule ^([^/.]+)$ $1.html [L]
+
+# ---------------------------------------------------------------------------
+# Always-fresh caching
+# Hostinger's default sends CSS/JS/images with a 7-day cache, so visitors kept
+# seeing old styles after a deploy. "no-cache" still lets browsers keep a copy,
+# but they must check with the server on every visit (a tiny 304 reply when
+# nothing changed), so a normal refresh always shows the latest deploy.
+# ---------------------------------------------------------------------------
+<IfModule mod_expires.c>
+  ExpiresActive Off
+</IfModule>
+<IfModule mod_headers.c>
+  Header unset Expires
+  Header set Cache-Control "no-cache, must-revalidate"
+</IfModule>
