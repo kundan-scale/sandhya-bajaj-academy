@@ -422,7 +422,7 @@ p { margin: 0; }
 .pull-quote {
   margin: 32px 0 0; padding: 24px 28px;
   background: var(--surface-tint); border-radius: var(--radius-lg);
-  font: italic 700 clamp(22px, 2.6vw, 28px)/1.3 var(--font-serif); color: var(--ink);
+  font: italic 700 clamp(20px, 2.3vw, 26px)/1.35 var(--font-sans); color: var(--ink);
   position: relative;
 }
 .pull-quote::before {
@@ -518,7 +518,7 @@ p { margin: 0; }
 }
 .system__trophy { width: 30px; height: 30px; color: var(--night); display: block; }
 .system__mantra-line {
-  font: italic 700 clamp(20px, 2vw, 24px)/1.35 var(--font-serif); color: #c9b8f0;
+  font: italic 700 clamp(19px, 1.9vw, 22px)/1.4 var(--font-sans); color: #c9b8f0;
 }
 .system__mantra {
   display: inline-flex; align-items: center; gap: 8px; margin-top: 18px;
@@ -719,7 +719,7 @@ p { margin: 0; }
   .btn--big .btn__arrow { width: 36px; height: 36px; }
   .system__note { text-align: center; font-size: 14px; }
   .system__bottom { margin-top: 34px; }
-  .system__mantra-line { font-size: 19px; }
+  .system__mantra-line { font-size: 18px; }
   .faq__q { font-size: 18px; line-height: 26px; padding: 18px 0; }
   .faq__icon { width: 32px; height: 32px; }
   .faq__a { padding: 0 0 20px; }
