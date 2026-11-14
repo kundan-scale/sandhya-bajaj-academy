@@ -13,7 +13,7 @@
  *  PRICE         Shown on every price label across both pages.
  */
 window.FUNNEL_CONFIG = {
-  CHECKOUT_URL: "https://superprofile.bio/vp/your-payment-page-title-here-148-413",
+  CHECKOUT_URL: "https://superprofile.bio/vp/parenting-guide-of-academic-excellence",
   DOWNLOAD_URL: "assets/ebook/Parenting-Guide-to-Academic-Excellence.pdf",
   PRICE: "₹299",
   PRICE_NOTE: "one-time payment",
