@@ -325,6 +325,30 @@ p { margin: 0; }
   display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: var(--space-2);
 }
 
+/* ---------- Testimonials: Amazon review screenshots on the night gradient ---------- */
+.reviews { position: relative; overflow: hidden; isolation: isolate; }
+.reviews::before {
+  content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  background:
+    radial-gradient(520px 260px at 100% 0%, rgba(255, 179, 75, 0.16), transparent 62%),
+    radial-gradient(460px 260px at 0% 100%, rgba(165, 141, 224, 0.18), transparent 65%);
+}
+.reviews__sub { margin-top: 12px; font-size: 17px; color: var(--on-night-muted); }
+.reviews__grid {
+  list-style: none; margin: 0 auto; padding: 0; max-width: 1080px;
+  columns: 2; column-gap: 28px;
+}
+.reviews__item { break-inside: avoid; margin: 0 0 28px; }
+.reviews__card {
+  margin: 0; padding: 10px; border-radius: var(--radius-lg);
+  background: var(--surface-white);
+  border: 1px solid rgba(255, 179, 75, 0.35);
+  box-shadow: 0 24px 48px -24px rgba(0, 0, 0, 0.55), 0 0 0 6px rgba(255, 255, 255, 0.04);
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+.reviews__card:hover { transform: translateY(-3px); box-shadow: 0 30px 56px -24px rgba(0, 0, 0, 0.6), 0 0 0 6px rgba(255, 179, 75, 0.10); }
+.reviews__card img { display: block; width: 100%; height: auto; border-radius: 10px; }
+
 /* ---------- Author ---------- */
 .author { display: grid; grid-template-columns: minmax(0, 0.78fr) minmax(0, 1.22fr); gap: 56px; align-items: center; }
 /* Cut-out portrait sits on a deep-indigo disc with a thin amber ring */
@@ -589,6 +613,7 @@ p { margin: 0; }
   .system__top { grid-template-columns: 1fr; gap: 28px; }
   .system__cta { align-items: flex-start; }
   .system__note { text-align: left; }
+  .reviews__grid { columns: 1; max-width: 680px; }
   .who-grid { grid-template-columns: 1fr; gap: var(--space-4); }
   .who-intro { position: static; text-align: center; }
   .who-intro .eyebrow { display: block; }
@@ -684,6 +709,10 @@ p { margin: 0; }
   .system__note { text-align: center; font-size: 14px; }
   .system__bottom { margin-top: 34px; }
   .system__mantra-line { font-size: 18px; }
+  .reviews__item { margin-bottom: 16px; }
+  .reviews__card { padding: 6px; border-radius: 14px; }
+  .reviews__card img { border-radius: 9px; }
+  .reviews__sub { font-size: 15px; }
   .faq__q { font-size: 18px; line-height: 26px; padding: 18px 0; }
   .faq__icon { width: 32px; height: 32px; }
   .faq__a { padding: 0 0 20px; }
